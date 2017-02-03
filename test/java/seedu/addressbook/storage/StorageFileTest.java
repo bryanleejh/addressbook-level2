@@ -74,7 +74,14 @@ public class StorageFileTest {
 
         assertStorageFilesEqual(storage, getStorage("ValidData.xml"));
     }
-
+    public void missingAddressBook_exceptionThrown() throws Exception {
+    	AddressBook ab = getTestAddressBook();
+    	StorageFile storage = getTempStorage();
+    	storage.save(ab);
+    	thrown.expect(StorageFile.StorageOperationException.class);
+    	storage.path.toFile().delete();
+    	storage.checkStorageFileExists();
+    }
     // getPath() method in StorageFile class is trivial so it is not tested
 
     /**
