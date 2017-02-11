@@ -1,13 +1,13 @@
 package seedu.addressbook.data.person;
 
-import seedu.addressbook.data.exception.IllegalValueException;
-
 import java.util.Arrays;
 import java.util.List;
 
+import seedu.addressbook.data.exception.IllegalValueException;
+
 /**
- * Represents a Person's name in the address book.
- * Guarantees: immutable; is valid as declared in {@link #isValidName(String)}
+ * Represents a Person's name in the address book. Guarantees: immutable; is
+ * valid as declared in {@link #isValidName(String)}
  */
 public class Name {
 
@@ -19,7 +19,8 @@ public class Name {
     /**
      * Validates given name.
      *
-     * @throws IllegalValueException if given name string is invalid.
+     * @throws IllegalValueException
+     *             if given name string is invalid.
      */
     public Name(String name) throws IllegalValueException {
         String trimmedName = name.trim();
@@ -34,6 +35,14 @@ public class Name {
      */
     public static boolean isValidName(String test) {
         return test.matches(NAME_VALIDATION_REGEX);
+    }
+
+    /**
+     * Returns true if entered name is similar to this name. Two names similar
+     * if full names are the same. Comparison case insensitive.
+     */
+    public boolean isSimilar(Name other) {
+        return this.fullName.toLowerCase().equals(other.fullName.toLowerCase());
     }
 
     /**
@@ -52,7 +61,8 @@ public class Name {
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof Name // instanceof handles nulls
-                && this.fullName.equals(((Name) other).fullName)); // state check
+                        && this.fullName.equals(((Name) other).fullName)); // state
+                                                                           // check
     }
 
     @Override
