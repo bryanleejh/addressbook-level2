@@ -90,10 +90,12 @@ public class Person implements ReadOnlyPerson {
 	public String getPrintableString(Printable... printables) {
 		String printableString = "";
 		for (Printable i : printables) {
-			if (printableString != "") {
-				printableString.concat(", ");
+			if (printableString.equals("")) {
+				
+			} else {
+			    printableString.toString().concat(", ");
 			}
-			printableString.concat(i.getPrintableString());
+			printableString.toString().concat(i.getPrintableString());
 		}
 		return printableString;
 	}
