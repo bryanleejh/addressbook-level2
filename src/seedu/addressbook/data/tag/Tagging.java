@@ -5,12 +5,16 @@ import seedu.addressbook.data.person.Person;
 public class Tagging {
     private Person personInvolved;
     private Tag tagInvolved;
-    private boolean isAdded;
+    private action status;
+    private enum action {ADDED, DELETED};
     
     public Tagging(Person personInvolved, Tag tagInvolved, boolean isAdded) {
         this.personInvolved = personInvolved;
         this.tagInvolved = tagInvolved;
-        this.isAdded = isAdded;
+        this.status = action.ADDED;
     }
     
+    public String toString() {
+        return status + " " + personInvolved.getName().toString() + " " + tagInvolved.toString();
+    }
 }
