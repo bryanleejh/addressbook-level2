@@ -150,6 +150,9 @@ public class AddressBook {
         return new UniqueTagList(allTags);
     }
     
+    /**
+     * Get all Taggings as a String
+     */
     public String getAllTaggings() {
         String entireList = "";
         for(Tagging value: this.allTaggings) {
