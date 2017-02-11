@@ -151,7 +151,7 @@ public class AddressBook {
     }
     
     /**
-     * Get all Taggings as a String
+     * Get all Tagging as a String
      */
     public String getAllTaggings() {
         String entireList = "";
